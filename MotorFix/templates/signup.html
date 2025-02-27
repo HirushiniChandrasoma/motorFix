@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Member Login</title>
+    <title>Registration</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -17,13 +17,13 @@
             font-family: 'Poppins', sans-serif;
         }
         .container {
-            width: 350px;
+            width: 400px;
             background: rgba(255, 255, 255, 0.382);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.541);
             text-align: center;
-            margin: 100px auto;
+            margin: 50px auto;
             backdrop-filter: blur(10px);
         }
         h2 {
@@ -36,11 +36,23 @@
             margin-top: 10px;
             border: none;
             border-radius: 5px;
-            background: rgba(255, 255, 255, 0.779);
+            background: rgba(255, 255, 255, 0.781);
             color: #0f0f0f;
         }
         ::placeholder {
             color: #3710ac;
+        }
+        .newsletter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            text-align: left;
+            color: #fff;
+        }
+        .newsletter input {
+            width: auto;
+            margin: 0;
         }
         button {
             width: 100%;
@@ -53,39 +65,48 @@
             cursor: pointer;
         }
         button:hover {
-            background:#031e43;
+            background: #031e43;
         }
-        .options {
-            margin-top: 15px;
-            font-size: 14px;
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
         }
-        .options a {
-            color: #fff;
+        .actions a {
+            padding: 10px 20px;
+            background: #444;
+            color: white;
             text-decoration: none;
+            border-radius: 5px;
+        }
+        .actions a:hover {
+            background: rgb(8, 8, 11);
+            color: rgb(255, 254, 254);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Member Login</h2>
+        <h2>Registration</h2>
         <form method="post">
             {% csrf_token %}
-            <input type="text" placeholder="Username" name="username">
+            <input type="text" placeholder="First Name" name="first_name">
+            <input type="text" placeholder="Last Name" name="last_name">
+            <input type="text" placeholder="User Name" name="username">
+            <input type="email" placeholder="Email Address" name="email">
             <input type="password" placeholder="Password" name="password">
-            <div class="options" style="display: flex; justify-content: space-between; align-items: center;">
-                <label for="remember" style="display: flex; align-items: center; gap: 5px; color: white;">
-                    <input type="checkbox" id="remember" name="remember"> Remember me
-                </label>
-                <a href="#" style="color: rgb(117, 8, 8); text-decoration: none;">Forgot password?</a>
+            <input type="password" placeholder="Confirm Password" name="confirm_password">
+            
+            <div class="newsletter">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Subscribe to MotorFix</label>
             </div>
-            
-            
-            <button type="submit">LOGIN</button>
+
+            <button type="submit">REGISTER</button>
+            <div class="actions">
+                <a href="{% url 'login' %}">I already have an account</a>
+            </div>
         </form>
-        <div class="options">
-            <p>You are not a member?</p>
-            <a href="{% url 'signup' %}">REGISTER NOW</a>
-        </div>
     </div>
 </body>
 </html>
