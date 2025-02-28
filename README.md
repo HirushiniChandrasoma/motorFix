@@ -9,19 +9,19 @@ MotorFix is a **Django-based** web application that allows users to **add, updat
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](screenshots/carpartsinventory.png)
+![Home Page](/MotorFix/screenshots/carpartsinventory.png)
 
 ### Add Car Part Page
-![Add Car Part](screenshots/adddetails.png)
+![Add Car Part](/MotorFix/screenshots/adddetails.png)
 
 ### Login Page
-![Login Page](screenshots/login.png)
+![Login Page](/MotorFix/screenshots/login.png)
 
 ### Register Page
-![Register Page](screenshots/register.png)
+![Register Page](/MotorFix/screenshots/register.png)
 
 ### delete Page
-![delete Page](screenshots/delete.png)
+![delete Page](/MotorFix/screenshots/delete.png)
 
 ### update Page
 ![update Page](screenshots/updatedetails.png)
@@ -41,11 +41,11 @@ MotorFix is a **Django-based** web application that allows users to **add, updat
 ## 🛠 Installation
 
 1️⃣ **Clone the Repository**
-```sh
+```bash
 git clone https://github.com/HirushiniChandrasoma/motorFix.git
 cd MotorFix
 
----
+
 
 2️⃣ Create a Virtual Environment (Optional but recommended)
 python -m venv venv
@@ -60,5 +60,6 @@ python manage.py migrate
 
 5️⃣ Run the Server
 python manage.py runserver     
+
 
 Visit http://127.0.0.1:8000/ to access the application.
