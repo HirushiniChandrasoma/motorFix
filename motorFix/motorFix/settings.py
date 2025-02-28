@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'MotorFix.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'CarParts',
         'USER':'postgres',
         'PASSWORD':'Hiru_leo2978',
         'HOST':'localhost',

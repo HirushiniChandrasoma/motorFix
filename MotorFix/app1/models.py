@@ -1,11 +1,23 @@
 from django.db import models
-from django.contrib.auth.models import User
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)  # Link profile to user
-    profile_picture = models.ImageField(upload_to='profile_pics/', default='default.jpg',blank =True, null = True)
-    bio = models.TextField(null=True, blank=True)
+class CarParts(models.Model):
+    CAR_PART_TYPES = [
+        ("Engine", "Engine"),
+        ("Brakes", "Brakes"),
+        ("Battery", "Battery"),
+        ("Transmission", "Transmission"),
+        ("Suspension", "Suspension"),
+        ("Exhaust", "Exhaust"),
+        ("Lights", "Lights"),
+        ("Tires", "Tires"),
+    ]
 
-    def __str__(self):
-        return self.user.username
+    itemId = models.CharField(max_length=8, unique=True)
+    itemName = models.CharField(max_length=200)
+    itemType = models.CharField(max_length=20, choices=CAR_PART_TYPES)
+    itemDescription = models.CharField(max_length=150)
+    itemPrice = models.FloatField(max_length=10)
+    itemImage = models.ImageField(upload_to='car_parts/', null=True, blank=True)
 
+    class Meta:
+        db_table = "CarParts"

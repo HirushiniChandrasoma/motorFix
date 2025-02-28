@@ -1,14 +1,7 @@
-# app1/forms.py
 from django import forms
-from django.contrib.auth.models import User
-from .models import Profile
+from .models import CarParts
 
-class UserUpdateForm(forms.ModelForm):
+class CarPartsForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ['username', 'email']
-
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['profile_picture', 'bio']
+        model = CarParts
+        fields = ['itemId', 'itemName', 'itemType', 'itemDescription', 'itemPrice', 'itemImage']
