@@ -125,33 +125,36 @@
 <body>
     <div class="container">
         <div class="profile-header">
-            <img src="https://via.placeholder.com/80" alt="Profile Picture" id="profile-picture">
-            <h2>Jane Doe</h2>
-            <p>9 May 1988</p>
+          <img src="https://via.placeholder.com/80" alt="Profile Picture" id="profile-picture">
+            <h2>{{ request.user.username }}</h2>
+            <p>Joined on: {{ profile.user.date_joined|date:"d M Y" }}</p>
         </div>
 
-        <form action="/upload_profile_picture" method="POST" enctype="multipart/form-data">
-            <!-- Profile Picture Upload -->
-            <div class="file-upload">
-                <input type="file" id="profile-picture-upload" name="profile_picture" accept="image/*" onchange="previewImage(event)">
-                <label for="profile-picture-upload">Upload Profile Picture</label>
-            </div>
+        <!-- Profile Picture and Details Update Form -->
+        {% if profile %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- This will render the form fields -->
 
-            <!-- Submit Button -->
             <button type="submit" class="update">
-                <span>Update Profile Picture</span>
+                <span>Update Profile</span>
+                <a href="{% url 'updateprofile' %}" class="update-link">Go to Profile Update</a>
             </button>
         </form>
+        {% else %}
+        <p>Your profile is incomplete. Please complete your profile information.</p>
+        {% endif %}
 
+        <!-- Profile Menu -->
         <div class="menu">
+            <button class="menu-item">
+                <i class="fas fa-lock"></i>
+                <span>Profile Update</span>
+            </button>
             <button class="menu-item">
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span>
                 <div class="badge">3</div>
-            </button>
-            <button class="menu-item">
-                <i class="fas fa-lock"></i>
-                <span>Password Update</span>
             </button>
             <button class="menu-item">
                 <i class="fas fa-map-marker-alt"></i>
@@ -176,7 +179,7 @@
         </div>
 
         <button class="logout">
-          <a href="{% url 'login' %}">Log Out</a>
+          <a href="{% url 'logout' %}">Log Out</a>
         </button>
     </div>
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Add your custom styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Profile</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                {{ user_form.username }}
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                {{ user_form.email }}
+            </div>
+            <div class="form-group">
+                <label for="profile_picture">Profile Picture</label>
+                {{ profile_form.profile_picture }}
+            </div>
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth</label>
+                {{ profile_form.date_of_birth }}
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                {{ profile_form.bio }}
+            </div>
+            <button type="submit">Update Profile</button>
+        </form>
+        <form method="POST" action="{% url 'delete_account' %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-account">Delete Account</button>
+        </form>
+    </div>
+</body>
+</html>
