@@ -45,6 +45,8 @@ MotorFix is a **Django-based** web application that allows users to **add, updat
 git clone https://github.com/HirushiniChandrasoma/motorFix.git
 cd MotorFix
 
+---
+
 2️⃣ Create a Virtual Environment (Optional but recommended)
 python -m venv venv
 venv\Scripts\activate  # For Windows
