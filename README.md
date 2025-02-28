@@ -24,7 +24,7 @@ MotorFix is a **Django-based** web application that allows users to **add, updat
 ![delete Page](/MotorFix/screenshots/delete.png)
 
 ### update Page
-![update Page](screenshots/updatedetails.png)
+![update Page](/MotorFix/screenshots/updatedetails.png)
 
 ---
 
